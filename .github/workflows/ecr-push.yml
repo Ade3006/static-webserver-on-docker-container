@@ -35,8 +35,9 @@ jobs:
         run: |
           set -e
           IMAGE_URI="$ACCOUNT_ID.dkr.ecr.$AWS_REGION.amazonaws.com/$ECR_REPO"
-          cd clo835_summer2023_assignment1
-          docker build -t "$IMAGE_URI:latest" -t "$IMAGE_URI:$SHA" -f Dockerfile .
+          docker build -t "$IMAGE_URI:latest" -t "$IMAGE_URI:$SHA" \
+            -f clo835_summer2023_assignment1/Dockerfile \
+            clo835_summer2023_assignment1
           docker push "$IMAGE_URI:latest"
           docker push "$IMAGE_URI:$SHA"
 
@@ -49,8 +50,9 @@ jobs:
         run: |
           set -e
           IMAGE_URI="$ACCOUNT_ID.dkr.ecr.$AWS_REGION.amazonaws.com/$ECR_REPO"
-          cd clo835_summer2023_assignment1
-          docker build -t "$IMAGE_URI:latest" -t "$IMAGE_URI:$SHA" -f Dockerfile_mysql .
+          docker build -t "$IMAGE_URI:latest" -t "$IMAGE_URI:$SHA" \
+            -f clo835_summer2023_assignment1/Dockerfile_mysql \
+            clo835_summer2023_assignment1
           docker push "$IMAGE_URI:latest"
           docker push "$IMAGE_URI:$SHA"
 
