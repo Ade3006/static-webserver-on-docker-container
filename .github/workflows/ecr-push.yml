@@ -15,6 +15,18 @@ jobs:
           fetch-depth: 0
           submodules: false
 
+      - name: Debug workspace
+        run: |
+          set -e
+          echo "=== PWD ==="
+          pwd
+          echo "=== LS (repo root) ==="
+          ls -la
+          echo "=== LS (app folder) ==="
+          ls -la clo835_summer2023_assignment1 || true
+          echo "=== LS (Dockerfiles) ==="
+          ls -la clo835_summer2023_assignment1/Dockerfile clo835_summer2023_assignment1/Dockerfile_mysql || true
+
       - name: Configure AWS credentials
         uses: aws-actions/configure-aws-credentials@v4
         with:
