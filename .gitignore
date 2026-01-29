@@ -4,3 +4,8 @@
 *.tfstate.*
 crash.log
 terraform.tfvars
+# SSH keys
+*.pem
+*.key
+id_rsa*
+
