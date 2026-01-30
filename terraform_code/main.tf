@@ -82,7 +82,6 @@ data "aws_ami" "amzn2" {
   }
 }
 
-# IAM role so EC2 can pull from ECR
 resource "aws_instance" "app_host" {
   ami                         = data.aws_ami.amzn2.id
   instance_type               = var.instance_type
